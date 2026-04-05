@@ -25,5 +25,6 @@ INSERT INTO recurring_events (title, location, start_date, end_date, days, start
 
 -- Maintenance items
 INSERT INTO maintenance_items (title, category, frequency_days, last_performed, priority) VALUES
-  ('Replace Toothbrush', 'Personal Hygiene', 90, '2025-12-15', 'medium'),
-  ('Replace Water Filter', 'Home', 180, '2025-10-01', 'high');
+  ('Replace Toothbrush', 'Personal Hygiene', 90, '2025-12-23', 'medium'),
+  ('Replace Water Filter', 'Home', 90, '2026-03-29', 'high'),
+  ('Period', 'Personal Health', 28, '2026-04-04', 'medium');
