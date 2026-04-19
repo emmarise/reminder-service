@@ -1,15 +1,15 @@
 -- Seed data for testing all three modules
 -- Run after schema.sql in Supabase SQL Editor
 
--- Trip: Hawaii (Apr 23 - Apr 30)
+-- Trip: Hawaii (Apr 23 - Apr 30) — Kauai + Oahu multi-island
 INSERT INTO trips (title, destination, start_date, end_date, tier_30, tier_7, tier_1) VALUES (
   'Hawaii Trip',
-  'Lihue, Kauai (LIH)',
+  'Kauai + Oahu (LIH/HNL)',
   '2026-04-23',
   '2026-04-30',
-  '{"summary": "7-day Hawaii getaway on Kauai", "hotel": "Grand Hyatt Kauai, Poipu Beach"}'::jsonb,
-  '{"flight_info": "UA 1234 SFO→LIH, dep 8:15 AM, arr 11:30 AM | UA 5678 LIH→SFO, dep 2:00 PM, arr 10:15 PM", "packing_list": "Sunscreen SPF 50, hiking shoes, snorkel gear, rain jacket, reef-safe sunscreen", "car_rental": "Enterprise, confirmation #XYZ789, pickup at LIH airport"}'::jsonb,
-  '{"itinerary": "Day 1: Check-in 3 PM, dinner at Tidepools 7 PM\nDay 2: Na Pali Coast boat tour 8 AM\nDay 3: Waimea Canyon hike\nDay 4: Beach day at Poipu\nDay 5: Snorkeling at Tunnels Beach\nDay 6: Helicopter tour 10 AM\nDay 7: Check-out 11 AM, flight 2 PM", "checklist": "Passport, boarding pass (United app), hotel confirmation, travel insurance card, car rental confirmation"}'::jsonb
+  '{"summary": "Kauai (5 nights) + Oahu (2 nights) multi-island trip", "hotel": "Kauai Shores Hotel (3n, 4/23-4/26) > Grand Hyatt Kauai (2n, 4/26-4/28) > Airbnb Honolulu (2n, 4/28-4/30)"}'::jsonb,
+  '{"flight_info": "DL345 SEA-LIH, Thu Apr 23, 2:30 PM-5:40 PM (Delta) | AS1134 LIH-HNL, Tue Apr 28, 5:10 PM-5:48 PM (Alaska) | DL440 HNL-SEA, Thu Apr 30, 10:45 PM-7:35 AM+1 (Delta)", "packing_list": "墨镜, 防晒帽, 牙刷, 牙膏, 牙线, camera, 隐形眼镜, 充电器, 直板夹, 拖鞋"}'::jsonb,
+  '{"checklist": "Boarding pass (Delta app + Alaska app), Kauai Shores confirmation, Grand Hyatt confirmation, Airbnb confirmation (HM4NHBYNJJ), Shangri La Tour tickets ($96.76)"}'::jsonb
 );
 
 -- Recurring event: Tennis Class (Tue/Thu, Apr 7 - Apr 30)
@@ -24,7 +24,8 @@ INSERT INTO recurring_events (title, location, start_date, end_date, days, start
 );
 
 -- Maintenance items
-INSERT INTO maintenance_items (title, category, frequency_days, last_performed, priority) VALUES
-  ('Replace Toothbrush', 'Personal Hygiene', 90, '2025-12-23', 'medium'),
-  ('Replace Water Filter', 'Home', 90, '2026-03-29', 'high'),
-  ('Period', 'Personal Health', 28, '2026-04-04', 'medium');
+INSERT INTO maintenance_items (title, category, frequency_days, last_performed, priority, notes) VALUES
+  ('Replace Toothbrush', 'Personal Hygiene', 90, '2025-12-23', 'medium', NULL),
+  ('Replace Water Filter', 'Home', 90, '2026-03-29', 'high', NULL),
+  ('Period', 'Personal Health', 27, '2026-04-04', 'medium', 'duration:5'),
+  ('Oncall Rotation', 'Work', 35, '2026-03-31', 'high', NULL);
